@@ -1,0 +1,29 @@
+<form [formGroup]="todoForm" #f="ngForm" (ngSubmit)="todo.emit()">
+  <div class="form-group">
+    <label for="title">Task</label>
+    <input type="text" id="title" class="form-control" formControlName="title">
+    <div *ngIf="f.submitted && todoForm.get('title')?.invalid || todoForm.get('title')?.invalid && (todoForm.get('title')?.dirty || todoForm.get('title')?.touched)"
+      class="alert">
+      Title is required
+    </div>
+  </div>
+
+    <div class="form-group">
+      <label for="body">Task Details</label>
+      <textarea rows="2" id="body" class="form-control" formControlName="body"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="media">Media(Add a link you want to add to this task)</label>
+      <input type="text" id="media" class="form-control" formControlName="media">
+    </div>
+    <div class="form-group">
+      <label for="owner">Assign To</label>
+      <input type="text" id="owner" class="form-control" formControlName="owner">
+      <div *ngIf="f.submitted && todoForm.get('owner')?.invalid ||todoForm.get('owner')?.invalid && (todoForm.get('owner')?.dirty || todoForm.get('owner')?.touched)"
+      class="alert">
+      Please assign task to someone
+    </div>
+    </div>
+
+    <div><button class="btn btn-primary w-100">Submit</button></div>
+</form>

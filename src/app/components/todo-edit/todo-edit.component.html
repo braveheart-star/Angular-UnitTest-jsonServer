@@ -1,0 +1,4 @@
+<h1>Edit todo</h1>
+<app-todo-create-form *ngIf="todo$|async; else notFound" (todo)="updateTodo()" [todoForm]="todoForm"></app-todo-create-form>
+<ng-template #notFound>No todo found with this Id</ng-template>
+<div class="message" *ngIf="todoMsg|async as msg">{{msg}}</div>

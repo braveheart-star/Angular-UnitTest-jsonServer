@@ -1,0 +1,9 @@
+<ng-container *ngIf="todos$|async as todos">
+  <ng-container *ngIf="todos.length">
+    <app-todo-list (markComplete)="markComplete($event)" (deleteTodo)="deleteTodo($event)" (createTodo)="navigate(['add'])"
+      (editTodo)="navigate(['edit',$event])" [todos]="todos"></app-todo-list>
+  </ng-container>
+  <ng-container *ngIf="todos.length===0">
+    No todos found for this user
+  </ng-container>
+</ng-container>
