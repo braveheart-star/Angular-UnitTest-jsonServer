@@ -11,7 +11,7 @@ import { TodoService } from 'src/app/services/todo/todo.service';
 })
 export class TodoComponent {
   todos$: Observable<Todo[]> = this.todoService.todos$;
-  constructor(private todoService: TodoService, private router: Router) {}
+  constructor(private todoService: TodoService, private router: Router) { }
 
   deleteTodo(todo: Todo): void {
     this.todoService.deleteTodo({ ...todo, deleted: true }).subscribe();
@@ -22,7 +22,6 @@ export class TodoComponent {
   }
 
   markComplete(todo: Todo): void {
-
     this.todoService.editTodo({ ...todo, status: 'done' }).subscribe();
   }
 }
